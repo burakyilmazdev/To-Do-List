@@ -70,6 +70,29 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return items!.count
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        
+        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            
+            let noteToRemove = self.items![indexPath.row]
+            
+            self.context.delete(noteToRemove)
+            
+            do{
+                try self.context.save()
+            }catch{
+                
+            }
+            
+            self.fetchNotes()
+            
+            
+        }
+        
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+    
     
     
 }
