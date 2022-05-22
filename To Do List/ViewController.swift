@@ -6,24 +6,44 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var noteArray = [Note]()
-    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var items:[Note]?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    
+
         tableView.delegate = self
         tableView.dataSource = self
         
+        fetchNotes()
+        
     }
     
-   
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("view will appear")
+        fetchNotes()
+    }
+    
+
+    
+    func fetchNotes(){
+        do{
+            self.items = try context.fetch(Note.fetchRequest())
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }catch{
+            print(error.localizedDescription)
+        }
+    }
 }
 
 
@@ -32,7 +52,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")!
-        cell.textLabel?.text = noteArray[indexPath.row].note
+        
+        
+        if let item = items?[indexPath.row]{
+            cell.textLabel?.text = item.title
+            
+        }
         return cell
     }
     
@@ -42,7 +67,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return noteArray.count
+        return items!.count
     }
     
     

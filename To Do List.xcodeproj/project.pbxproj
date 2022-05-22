@@ -14,7 +14,6 @@
 		6550A63428354D8F00CA9543 /* To_Do_List.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6550A63228354D8F00CA9543 /* To_Do_List.xcdatamodeld */; };
 		6550A63628354D9100CA9543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6550A63528354D9100CA9543 /* Assets.xcassets */; };
 		6550A63928354D9100CA9543 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6550A63728354D9100CA9543 /* LaunchScreen.storyboard */; };
-		6550A6432835535200CA9543 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6550A6422835535200CA9543 /* Note.swift */; };
 		658054EB28356F5B008E1E24 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658054EA28356F5B008E1E24 /* AddNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +27,6 @@
 		6550A63528354D9100CA9543 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6550A63828354D9100CA9543 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6550A63A28354D9100CA9543 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6550A6422835535200CA9543 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		658054EA28356F5B008E1E24 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +84,6 @@
 		6550A6412835532700CA9543 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6550A6422835535200CA9543 /* Note.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -171,7 +168,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6550A6432835535200CA9543 /* Note.swift in Sources */,
 				6550A62E28354D8F00CA9543 /* ViewController.swift in Sources */,
 				658054EB28356F5B008E1E24 /* AddNoteViewController.swift in Sources */,
 				6550A62A28354D8F00CA9543 /* AppDelegate.swift in Sources */,
