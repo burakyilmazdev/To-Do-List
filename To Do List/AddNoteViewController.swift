@@ -29,13 +29,26 @@ class AddNoteViewController: UIViewController {
             note.text = ""
         }
         
+        hideKeyboardWhenTappedAround()
+        
         
     }
     
+    func hideKeyboardWhenTappedAround() {
+            let tapGesture = UITapGestureRecognizer(target: self,
+                             action: #selector(hideKeyboard))
+            view.addGestureRecognizer(tapGesture)
+        }
+
+        @objc func hideKeyboard() {
+            view.endEditing(true)
+        }
     
     
     
     @IBAction func doneButton(_ sender: UIButton) {
+        
+        self.view.endEditing(true)
         
         if noteObject != nil{
             //update note
