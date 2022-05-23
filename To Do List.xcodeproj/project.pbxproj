@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65126585283BFDD30032E0CE /* CustomNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65126583283BFDD30032E0CE /* CustomNoteCell.swift */; };
+		65126586283BFDD30032E0CE /* CustomNoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65126584283BFDD30032E0CE /* CustomNoteCell.xib */; };
+		65126588283C12D30032E0CE /* DetailScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65126587283C12D30032E0CE /* DetailScreenViewController.swift */; };
 		6550A62A28354D8F00CA9543 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6550A62928354D8F00CA9543 /* AppDelegate.swift */; };
 		6550A62C28354D8F00CA9543 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6550A62B28354D8F00CA9543 /* SceneDelegate.swift */; };
 		6550A62E28354D8F00CA9543 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6550A62D28354D8F00CA9543 /* ViewController.swift */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65126583283BFDD30032E0CE /* CustomNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNoteCell.swift; sourceTree = "<group>"; };
+		65126584283BFDD30032E0CE /* CustomNoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNoteCell.xib; sourceTree = "<group>"; };
+		65126587283C12D30032E0CE /* DetailScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewController.swift; sourceTree = "<group>"; };
 		6550A62628354D8F00CA9543 /* To Do List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "To Do List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6550A62928354D8F00CA9543 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6550A62B28354D8F00CA9543 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +83,7 @@
 			children = (
 				6550A62D28354D8F00CA9543 /* ViewController.swift */,
 				658054EA28356F5B008E1E24 /* AddNoteViewController.swift */,
+				65126587283C12D30032E0CE /* DetailScreenViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -93,6 +100,8 @@
 			children = (
 				6550A63728354D9100CA9543 /* LaunchScreen.storyboard */,
 				6550A62F28354D8F00CA9543 /* Main.storyboard */,
+				65126583283BFDD30032E0CE /* CustomNoteCell.swift */,
+				65126584283BFDD30032E0CE /* CustomNoteCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -155,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65126586283BFDD30032E0CE /* CustomNoteCell.xib in Resources */,
 				6550A63928354D9100CA9543 /* LaunchScreen.storyboard in Resources */,
 				6550A63628354D9100CA9543 /* Assets.xcassets in Resources */,
 				6550A63128354D8F00CA9543 /* Main.storyboard in Resources */,
@@ -168,10 +178,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65126588283C12D30032E0CE /* DetailScreenViewController.swift in Sources */,
 				6550A62E28354D8F00CA9543 /* ViewController.swift in Sources */,
 				658054EB28356F5B008E1E24 /* AddNoteViewController.swift in Sources */,
 				6550A62A28354D8F00CA9543 /* AppDelegate.swift in Sources */,
 				6550A62C28354D8F00CA9543 /* SceneDelegate.swift in Sources */,
+				65126585283BFDD30032E0CE /* CustomNoteCell.swift in Sources */,
 				6550A63428354D8F00CA9543 /* To_Do_List.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

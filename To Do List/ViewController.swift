@@ -20,6 +20,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
+        
+        let nib = UINib(nibName: "CustomNoteCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "CustomNoteCell")
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -55,12 +58,12 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomNoteCell") as! CustomNoteCell
         
         
         if let item = items?[indexPath.row]{
-            cell.textLabel?.text = item.title
-            
+            cell.title.text = item.title
+            cell.noteText.text = item.note
         }
         return cell
     }
@@ -96,14 +99,25 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         return UISwipeActionsConfiguration(actions: [action])
     }
+  
     
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let action = UIContextualAction(style: .normal, title: "Update") { (action, view, completionHandler) in
+            
+            self.note = self.items![indexPath.row]
+            self.performSegue(withIdentifier: "addNote", sender:self)
+            
+        }
+        
+        return UISwipeActionsConfiguration(actions: [action])
+        
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
         //Update Note
         
-        note = items![indexPath.row]
-        performSegue(withIdentifier: "addNote", sender:self)
-        
+       
     }
     
 
