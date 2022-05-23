@@ -1,6 +1,6 @@
 # To-Do-List
 
-Tech Stack tha has been used in this project;
+Tech Stack that has been used in this project;
 
 - Swift
 - UIKit
