@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var items:[Note]?
+    var note:Note?
 
     
     override func viewDidLoad() {
@@ -23,6 +24,8 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         
         fetchNotes()
+    
+        
         
     }
     
@@ -31,6 +34,7 @@ class ViewController: UIViewController {
         print("view will appear")
         fetchNotes()
     }
+    
     
 
     
@@ -93,6 +97,29 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: [action])
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+        //Update Note
+        
+        note = items![indexPath.row]
+        performSegue(withIdentifier: "addNote", sender:self)
+        
+    }
+    
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let addNoteVC = segue.destination as? AddNoteViewController
+        
+        if note != nil{
+            addNoteVC?.noteObject = note
+            note = nil
+        }else{
+            addNoteVC?.noteObject = nil
+        }
+       
+        
+    }
     
     
 }

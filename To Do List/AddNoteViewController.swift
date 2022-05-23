@@ -14,21 +14,45 @@ class AddNoteViewController: UIViewController {
     @IBOutlet weak var noteTitle: UITextField!
     @IBOutlet weak var note: UITextField!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    let viewController = ViewController()
     
+    var updateToNoteTitle: String = ""
+    var updateToNote: String = ""
+    var noteObject:Note?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if noteObject != nil {
+            noteTitle.text = noteObject?.title
+            note.text = noteObject?.note
+        }
+        else{
+            noteTitle.text = ""
+            note.text = ""
+        }
         
-    }    
+        
+    }
+    
+    
+    
     
     @IBAction func doneButton(_ sender: UIButton) {
-   
-        let newNote = Note(context: context)
-        newNote.note = note.text
-        newNote.title = noteTitle.text
         
+        if noteObject != nil{
+            //update note
+            noteObject?.note = note.text
+            noteObject?.title = noteTitle.text
+        }
+        else{
+            //new create
+            
+            let newNote = Note(context: context)
+            newNote.note = note.text
+            newNote.title = noteTitle.text
+        }
+   
+       
         do{
             try context.save()
             showToast(message: "Saved", font: .systemFont(ofSize: 12.0))

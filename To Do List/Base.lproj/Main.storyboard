@@ -52,7 +52,7 @@
                     <navigationItem key="navigationItem" id="moX-FM-OyD">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="eKZ-58-ZfT">
                             <connections>
-                                <segue destination="QPI-LH-7bB" kind="show" id="Lri-KZ-CSi"/>
+                                <segue destination="QPI-LH-7bB" kind="show" identifier="addNote" id="Lri-KZ-CSi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
