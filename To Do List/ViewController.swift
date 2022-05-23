@@ -14,12 +14,12 @@ class ViewController: UIViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var items:[Note]?
     var note:Note?
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
+        
         
         let nib = UINib(nibName: "CustomNoteCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CustomNoteCell")
@@ -27,8 +27,6 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         
         fetchNotes()
-    
-        
         
     }
     
@@ -39,7 +37,7 @@ class ViewController: UIViewController {
     }
     
     
-
+    
     
     func fetchNotes(){
         do{
@@ -99,9 +97,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         return UISwipeActionsConfiguration(actions: [action])
     }
-  
+    
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        //Update Note
         
         let action = UIContextualAction(style: .normal, title: "Update") { (action, view, completionHandler) in
             
@@ -114,24 +114,45 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
-        //Update Note
         
-       
+        note = items![indexPath.row]
+        performSegue(withIdentifier: "mainToDetail", sender:self)
+        tableView.deselectRow(at: indexPath, animated: false)
+        
     }
     
-
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let addNoteVC = segue.destination as? AddNoteViewController
         
-        if note != nil{
-            addNoteVC?.noteObject = note
+        
+        switch segue.identifier {
+            
+        case "addNote":
+            print("add note")
+
+            let addNoteVC = segue.destination as? AddNoteViewController
+            
+            if self.note != nil{
+                addNoteVC?.noteObject = self.note
+                self.note = nil
+            }else{
+                addNoteVC?.noteObject = nil
+            }
+            
+            
+        case "mainToDetail":
+            let detailScreenVC = segue.destination as? DetailScreenViewController
+                        
+            detailScreenVC?.noteToShow = note!.note!
+            detailScreenVC?.noteTitleToShow = note!.title!
             note = nil
-        }else{
-            addNoteVC?.noteObject = nil
+
+        default:
+            print("default")
+            
+            
         }
-       
         
     }
     

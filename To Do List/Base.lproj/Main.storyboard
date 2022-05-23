@@ -48,7 +48,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Dvy-6A-oFc" id="8fd-QH-Jqp"/>
-                        <segue destination="0gy-eH-hSh" kind="show" identifier="mainToDetail" id="umR-Ry-4vc"/>
+                        <segue destination="0gy-eH-hSh" kind="presentation" identifier="mainToDetail" id="umR-Ry-4vc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -155,20 +155,20 @@
         <!--Detail Screen View Controller-->
         <scene sceneID="m51-1d-cl5">
             <objects>
-                <viewController modalPresentationStyle="pageSheet" id="0gy-eH-hSh" customClass="DetailScreenViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0gy-eH-hSh" customClass="DetailScreenViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fuv-Rd-DDW">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYf-6n-vQW">
-                                <rect key="frame" x="8" y="152" width="412" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYf-6n-vQW">
+                                <rect key="frame" x="8" y="108" width="412" height="25.333333333333343"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYJ-TN-RWe">
-                                <rect key="frame" x="8" y="189" width="412" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="8" y="165.33333333333334" width="412" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -178,13 +178,17 @@
                         <constraints>
                             <constraint firstItem="gfd-87-Awk" firstAttribute="trailing" secondItem="cYJ-TN-RWe" secondAttribute="trailing" constant="8" id="2zg-k9-F3j"/>
                             <constraint firstItem="DYf-6n-vQW" firstAttribute="leading" secondItem="gfd-87-Awk" secondAttribute="leading" constant="8" id="AdH-5e-IY9"/>
-                            <constraint firstItem="cYJ-TN-RWe" firstAttribute="top" secondItem="DYf-6n-vQW" secondAttribute="bottom" constant="16" id="Dxw-QT-fJc"/>
+                            <constraint firstItem="cYJ-TN-RWe" firstAttribute="top" secondItem="DYf-6n-vQW" secondAttribute="bottom" constant="32" id="Dxw-QT-fJc"/>
                             <constraint firstItem="gfd-87-Awk" firstAttribute="trailing" secondItem="DYf-6n-vQW" secondAttribute="trailing" constant="8" id="Xfn-T4-5Vy"/>
                             <constraint firstItem="cYJ-TN-RWe" firstAttribute="leading" secondItem="gfd-87-Awk" secondAttribute="leading" constant="8" id="gWy-tD-6c8"/>
                             <constraint firstItem="DYf-6n-vQW" firstAttribute="top" secondItem="gfd-87-Awk" secondAttribute="top" constant="64" id="sc3-od-C2c"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Tjd-ZP-mkp"/>
+                    <connections>
+                        <outlet property="note" destination="cYJ-TN-RWe" id="i9E-RS-5QB"/>
+                        <outlet property="noteTitle" destination="DYf-6n-vQW" id="XGA-0X-YFo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9qj-5W-eGP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

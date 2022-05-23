@@ -15,8 +15,6 @@ class AddNoteViewController: UIViewController {
     @IBOutlet weak var note: UITextField!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var updateToNoteTitle: String = ""
-    var updateToNote: String = ""
     var noteObject:Note?
     
     override func viewDidLoad() {
